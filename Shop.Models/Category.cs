@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace GameShop.Models
+namespace Shop.Models
 {
     public class Category
     {
@@ -10,8 +10,8 @@ namespace GameShop.Models
         [Required]
         [MaxLength(30)]
         [DisplayName("Category")]
-        public string Name { get; set; }
-		[Range(1, 100, ErrorMessage = "Display Order for category must be between 1 and 100")]
-		public int DisplayOrder { get; set; }
+        public string ?Name { get; set; }
+        [Range(1, 100, ErrorMessage = "Display Order for category must be between 1 and 100")]
+        public int DisplayOrder { get; set; }
     }
 }

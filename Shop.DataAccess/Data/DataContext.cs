@@ -1,7 +1,7 @@
-﻿using GameShop.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Models;
 
-namespace GameShop.Data
+namespace Shop.DataAccess.Data
 {
     public class DataContext : DbContext
     {

@@ -1,5 +1,5 @@
-global using GameShop.Data;
 global using Microsoft.EntityFrameworkCore;
+global using Shop.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

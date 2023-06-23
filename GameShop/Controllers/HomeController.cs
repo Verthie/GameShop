@@ -1,5 +1,5 @@
-﻿using GameShop.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Models;
 using System.Diagnostics;
 
 namespace GameShop.Controllers
