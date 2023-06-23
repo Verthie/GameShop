@@ -51,10 +51,6 @@ namespace GameShop.Controllers
 		[HttpPost]
 		public IActionResult Edit(Category objCategory)
 		{
-			//	if (objCategory.Name.ToLower() == "validation test")
-			//	{
-			//		ModelState.AddModelError("Name", "The name cannot be validation test");
-			//	}
 			if (ModelState.IsValid)
 			{
 				_db.Categories.Update(objCategory);
@@ -64,5 +60,32 @@ namespace GameShop.Controllers
 			return View();
 
 		}
-	}
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Category? categoryfromDb = _db.Categories.Find(id);
+            if (categoryfromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryfromDb);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+			Category? obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+				return NotFound();
+            }
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+    }
 }
