@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/GameShop/GameShop.db-shm
+/GameShop/GameShop.db-wal
