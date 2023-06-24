@@ -1,0 +1,29 @@
+﻿using Shop.DataAccess.Data;
+using Shop.DataAccess.Repository.IRepository;
+using Shop.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shop.DataAccess.Repository
+{
+	public class UnitOfWork : IUnitOfWork
+	{
+		private DataContext _db;
+		public ICategoryRepository Category { get; private set; }
+		public IProductRepository Product { get; private set; }
+		public UnitOfWork(DataContext db)
+		{
+			_db = db;
+			Category = new CategoryRepository(_db);
+			Product = new ProductRepository(_db);
+		}
+
+		public void Save()
+		{
+			_db.SaveChanges();
+		}
+	}
+}
