@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Shop.Models;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace GameShop.Areas.Customer.Controllers
 {
     [Area("Customer")]
-
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -25,8 +26,12 @@ namespace GameShop.Areas.Customer.Controllers
         }
         public IActionResult Details(int id)
         {
-            Product product = _unitOfWork.Product.Get(u=>u.Id==id,includeProperties: "Category");
-            return View(product);
+            ShoppingCart cart = new() { 
+                Product = _unitOfWork.Product.Get(u => u.Id == id, includeProperties: "Category"),
+                Count = 1,
+                ProductId = id
+            };
+            return View(cart);
         }
 
         public IActionResult Privacy()

@@ -2,6 +2,15 @@ html {
   font-size: 14px;
 }
 
+.divider-text:before,
+.divider-text::after {
+    color: white;
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #555;
+    margin: auto 0.25rem
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -10,6 +19,30 @@ html {
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.toast-success {
+    background-color: #3cf281;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2rem rgba(255, 199, 32, 0.4), 0 0 8rem rgba(255, 199, 32, 0.3);
+}
+
+.toast-error {
+    background-color: #e44c55;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2rem rgba(231, 94, 102, 0.4), 0 0 8rem rgba(231, 94, 102, 0.3);
+}
+
+.toast-info {
+    background-color: #1ba2f6;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2rem rgba(231, 94, 102, 0.4), 0 0 8rem rgba(231, 94, 102, 0.3);
+}
+
+.toast-warning {
+    background-color: #ffc107;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 2rem rgba(255, 199, 32, 0.4), 0 0 8rem rgba(255, 199, 32, 0.3);
 }
 
 html {
