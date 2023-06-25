@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.DataAccess.Repository.IRepository;
 using Shop.Models;
+using Shop.Utility;
 
 namespace GameShop.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-	public class CategoryController : Controller
+    [Authorize(Roles = SD.Role_Admin)]
+    public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         public CategoryController(IUnitOfWork unitOfWork)
