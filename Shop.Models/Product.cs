@@ -21,15 +21,21 @@ namespace Shop.Models
 		public string Developer { get; set; }
 		[Required]
 		public string Publisher { get; set; }
-		[Required]
+        /*
+        [Required]
 		[Display(Name = "Price for 1-50")]
-		public double Price { get; set; }
+		*/
+        [Required]
+        [Display(Name = "Price")]
+        public double Price { get; set; }
+		/*
 		[Required]
 		[Display(Name = "Price for 51-100")]
 		public double Price50 { get; set; }
 		[Required]
 		[Display(Name = "Price for 100+")]
 		public double Price100 { get; set; }
+		*/
 		public int CategoryId { get; set; }
 		[ForeignKey("CategoryId")]
         [ValidateNever]
