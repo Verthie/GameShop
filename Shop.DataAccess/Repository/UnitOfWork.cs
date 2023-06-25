@@ -14,12 +14,14 @@ namespace Shop.DataAccess.Repository
 		private DataContext _db;
 		public ICategoryRepository Category { get; private set; }
 		public IProductRepository Product { get; private set; }
-		public UnitOfWork(DataContext db)
+        public ICompanyRepository Company { get; private set; }
+        public UnitOfWork(DataContext db)
 		{
 			_db = db;
 			Category = new CategoryRepository(_db);
 			Product = new ProductRepository(_db);
-		}
+            Company = new CompanyRepository(_db);
+        }
 
 		public void Save()
 		{

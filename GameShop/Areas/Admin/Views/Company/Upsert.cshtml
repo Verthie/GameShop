@@ -1,0 +1,60 @@
+﻿@model Company
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+    <div class="row">
+        <div class="col-12">
+            <div class="border p-3 mt-4">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@(Model.Id != 0 ? "Update" : "Add") Company</h2>
+                    <hr />
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="Name" class="form-control">
+                    <label class="p-0">Company Name</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="StreetAddress" class="form-control">
+                    <label class="p-0">Street Address</label>
+                    <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="City" class="form-control">
+                    <label class="p-0">City</label>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="Region" class="form-control">
+                    <label class="p-0">Region</label>
+                    <span asp-validation-for="Region" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="PostalCode" class="form-control">
+                    <label class="p-0">Postal Code</label>
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    <input asp-for="PhoneNumber" class="form-control">
+                    <label class="p-0">Phone Number</label>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        @if (Model.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Update</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Create</button>
+                        }
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Company" asp-action="Index" class="btn btn-outline-secondary form-control">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

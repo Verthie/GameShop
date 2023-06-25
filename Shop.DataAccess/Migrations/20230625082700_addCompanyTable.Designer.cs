@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.DataAccess.Data;
 
@@ -10,9 +11,11 @@ using Shop.DataAccess.Data;
 namespace Shop.DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230625082700_addCompanyTable")]
+    partial class addCompanyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.7");
@@ -302,38 +305,6 @@ namespace Shop.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Rzeszów",
-                            Name = "Z-Kom",
-                            PhoneNumber = "543462385",
-                            PostalCode = "35-021",
-                            Region = "Podkarpackie",
-                            StreetAddress = "Krakowska 3"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Warszawa",
-                            Name = "Morela.pl",
-                            PhoneNumber = "684439642",
-                            PostalCode = "00-001",
-                            Region = "Mazowieckie",
-                            StreetAddress = "Metrowa 43"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "Rzeszów",
-                            Name = "Media Master",
-                            PhoneNumber = "683124754",
-                            PostalCode = "35-021",
-                            Region = "Podkarpackie",
-                            StreetAddress = "Poznańska 7"
-                        });
                 });
 
             modelBuilder.Entity("Shop.Models.Product", b =>
@@ -481,10 +452,6 @@ namespace Shop.DataAccess.Migrations
                     b.Property<string>("City")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CompanyId")
-                        .IsRequired()
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -497,8 +464,6 @@ namespace Shop.DataAccess.Migrations
 
                     b.Property<string>("StreetAddress")
                         .HasColumnType("TEXT");
-
-                    b.HasIndex("CompanyId");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -563,17 +528,6 @@ namespace Shop.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Shop.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("Shop.Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }
