@@ -31,7 +31,7 @@
         </div>
         <div class="mb-3 p-1">
             <input asp-for="Product.Price" class="form-control">
-            <label class="p-0">Price 1-50</label>
+            <label class="p-0">Price</label>
             <span asp-validation-for="Product.Price" class="text-danger"></span>
         </div>
         <div class="mb-3 p-1">
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="col-2">
-            <img src="@Model.Product.ImageURL" width="100%" />
+                <img src="@Model.Product.ImageURL" style="width: 100%" />
         </div>
         </div>
         </div>

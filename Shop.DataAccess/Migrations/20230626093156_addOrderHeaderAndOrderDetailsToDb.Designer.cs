@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Shop.DataAccess.Data;
 
@@ -10,9 +11,11 @@ using Shop.DataAccess.Data;
 namespace Shop.DataAccess.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230626093156_addOrderHeaderAndOrderDetailsToDb")]
+    partial class addOrderHeaderAndOrderDetailsToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.7");
@@ -336,7 +339,7 @@ namespace Shop.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Shop.Models.OrderDetail", b =>
+            modelBuilder.Entity("Shop.Models.OrderDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -657,7 +660,7 @@ namespace Shop.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Shop.Models.OrderDetail", b =>
+            modelBuilder.Entity("Shop.Models.OrderDetails", b =>
                 {
                     b.HasOne("Shop.Models.OrderHeader", "OrderHeader")
                         .WithMany()
