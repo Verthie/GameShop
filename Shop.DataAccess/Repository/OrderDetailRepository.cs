@@ -17,8 +17,6 @@ namespace Shop.DataAccess.Repository
             _db = db;
         }
 
-
-
         public void Update(OrderDetail obj)
         {
             _db.OrderDetails.Update(obj);

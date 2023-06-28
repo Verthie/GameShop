@@ -59,6 +59,15 @@
 							</div>
 							<div class="row my-1">
 								<div class="col-3">
+									<label>Region</label>
+								</div>
+								<div class="col-9">
+									<input asp-for="OrderHeader.Region" class="form-control" />
+									<span asp-validation-for="OrderHeader.Region" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row my-1">
+								<div class="col-3">
 									<label>Postal Code</label>
 								</div>
 								<div class="col-9">
@@ -80,13 +89,12 @@
 									</div>
 									<span class="d-flex text-muted align-items-end">@((details.Price * details.Count).ToString("c")) </span>
 								</li>
-
-
-								<li class="list-group-item d-flex justify-content-between">
-									<small class="text-info">Total (PLN)</small>
-									<strong class="text-info">@Model.OrderHeader.OrderTotal.ToString("c")</strong>
-								</li>
+								
 								}
+							<li class="list-group-item d-flex justify-content-between">
+								<small class="text-info">Total (PLN)</small>
+								<strong class="text-info">@Model.OrderHeader.OrderTotal.ToString("c")</strong>
+							</li>
 							</ul>
 						</div>
 					</div>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="d-flex justify-content-center row mt-3">
+<div class="d-flex justify-content-center row mt-5">
     <div class="col-md-8">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="row">
             <h2 class="d-flex justify-content-center mb-3">Create a new account.</h2>
@@ -74,8 +74,7 @@
     </div>
     <div class="mt-5">
         <section>
-            <hr />
-            <h5 class="d-flex justify-content-center">or</h5>
+            <h5 class="d-flex justify-content-center divider-text">or</h5>
             <h3 class="d-flex justify-content-center">Use another service to register.</h3>
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)

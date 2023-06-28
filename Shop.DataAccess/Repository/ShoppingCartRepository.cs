@@ -17,7 +17,10 @@ namespace Shop.DataAccess.Repository
             _db = db;
         }
 
-
+        public void RemoveRange(List<ShoppingCart> shoppingCarts)
+        {
+            _db.ShoppingCarts.RemoveRange(shoppingCarts);
+        }
 
         public void Update(ShoppingCart obj)
         {

@@ -30,6 +30,7 @@ namespace Shop.Models
         public DateOnly PaymentDueDate { get; set; }
         //If there are any errors change DateOnly to DateTime
 
+        public string? SessionId { get; set; }
         public string? PaymentIntentId { get; set; }
 
         [Required]
@@ -39,7 +40,7 @@ namespace Shop.Models
         [Required]
         public string City { get; set; }
         [Required]
-        public string State { get; set; }
+        public string Region { get; set; }
         [Required]
         public string PostalCode { get; set; }
         [Required]

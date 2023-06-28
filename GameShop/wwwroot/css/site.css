@@ -2,13 +2,22 @@ html {
   font-size: 14px;
 }
 
+.dataTables_paginate.paging_simple_numbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 12%;
+}
+
 .divider-text:before,
 .divider-text::after {
-    color: white;
     content: "";
     flex: 1;
     border-bottom: 1px solid #555;
-    margin: auto 0.25rem
+    margin: auto 0.25rem;
+    border-top: 1px solid #6f42c1;
+    box-shadow: 0 0 2px rgba(111, 66, 193, 0.9), 0 0 4px rgba(111, 66, 193, 0.4), 0 0 1rem rgba(111, 66, 193, 0.3), 0 0 4rem rgba(111, 66, 193, 0.1);
+    opacity: 1;
 }
 
 @media (min-width: 768px) {

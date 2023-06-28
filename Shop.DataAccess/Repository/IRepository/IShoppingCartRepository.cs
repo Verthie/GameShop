@@ -9,6 +9,7 @@ namespace Shop.DataAccess.Repository.IRepository
 {
     public interface IShoppingCartRepository : IRepository<ShoppingCart>
     {
+        void RemoveRange(List<ShoppingCart> shoppingCarts);
         void Update(ShoppingCart obj);
     }
 }
