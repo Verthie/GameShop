@@ -115,10 +115,15 @@ namespace GameShop.Areas.Identity.Pages.Account
             public IEnumerable<SelectListItem> RoleList { get; set; }
             [Required]
             public string Name { get; set; }
+            [Required]
             public string? StreetAddress { get; set; }
+            [Required]
             public string? City { get; set; }
+            [Required]
             public string? Region { get; set; }
+            [Required]
             public string? PostalCode { get; set; }
+            [Required]
             public string? PhoneNumber { get; set; }
             public int? CompanyId { get; set; }
             [ValidateNever]
@@ -177,7 +182,7 @@ namespace GameShop.Areas.Identity.Pages.Account
                 {
                     user.CompanyId = Input.CompanyId;
                 }
-                
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

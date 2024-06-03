@@ -3,69 +3,70 @@ using Microsoft.AspNetCore.Mvc;
 using Shop.DataAccess.Repository.IRepository;
 using Shop.Models;
 using Shop.Utility;
+using GameShop.Services;
 
 namespace GameShop.Areas.Admin.Controllers
 {
-	[Area("Admin")]
+    [Area("Admin")]
     [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public CategoryController(IUnitOfWork unitOfWork)
+        private readonly ICategoryService _categoryService;
+
+        public CategoryController(ICategoryService categoryService)
         {
-            _unitOfWork = unitOfWork;
+            _categoryService = categoryService;
         }
+
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _unitOfWork.Category.GetAll().ToList();
-            return View(objCategoryList);
+            var categories = _categoryService.GetAllCategories();
+            return View(categories);
         }
+
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult Create(Category objCategory)
+        public IActionResult Create(Category category)
         {
-            //	if (objCategory.Name.ToLower() == "validation test")
-            //	{
-            //		ModelState.AddModelError("Name", "The name cannot be validation test");
-            //	}
             if (ModelState.IsValid)
             {
-                _unitOfWork.Category.Add(objCategory);
-                _unitOfWork.Save();
+                _categoryService.CreateCategory(category);
                 TempData["success"] = "Category created successfully";
                 return RedirectToAction("Index");
             }
-            return View();
-
+            return View(category);
         }
+
         public IActionResult Edit(int? id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            Category categoryfromDb = _unitOfWork.Category.Get(u => u.Id == id);
-            if (categoryfromDb == null)
+
+            var category = _categoryService.GetCategoryById(id.Value);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(categoryfromDb);
+
+            return View(category);
         }
+
         [HttpPost]
-        public IActionResult Edit(Category objCategory)
+        public IActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Category.Update(objCategory);
-                _unitOfWork.Save();
+                _categoryService.UpdateCategory(category);
                 TempData["success"] = "Category edited successfully";
                 return RedirectToAction("Index");
             }
-            return View();
-
+            return View(category);
         }
 
         public IActionResult Delete(int? id)
@@ -74,26 +75,27 @@ namespace GameShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Category? categoryfromDb = _unitOfWork.Category.Get(u => u.Id == id);
-            if (categoryfromDb == null)
+
+            var category = _categoryService.GetCategoryById(id.Value);
+            if (category == null)
             {
                 return NotFound();
             }
-            return View(categoryfromDb);
+
+            return View(category);
         }
+
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            Category? obj = _unitOfWork.Category.Get(u => u.Id == id);
-            if (obj == null)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            _unitOfWork.Category.Delete(obj);
-            _unitOfWork.Save();
+
+            _categoryService.DeleteCategory(id.Value);
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
-
         }
     }
 }

@@ -21,13 +21,13 @@ namespace Shop.Models
 		public string Developer { get; set; }
 		[Required]
 		public string Publisher { get; set; }
-        /*
-        [Required]
-		[Display(Name = "Price for 1-50")]
-		*/
-        [Required]
-        [Display(Name = "Price")]
-        public double Price { get; set; }
+		/*
+		[Required]
+[Display(Name = "Price for 1-50")]
+*/
+		[Required]
+		[Display(Name = "Price")]
+		public double Price { get; set; }
 		/*
 		[Required]
 		[Display(Name = "Price for 51-100")]
@@ -38,9 +38,9 @@ namespace Shop.Models
 		*/
 		public int CategoryId { get; set; }
 		[ForeignKey("CategoryId")]
-        [ValidateNever]
-        public Category Category { get; set; }
-        [ValidateNever]
-        public string ImageURL { get; set; }
+		[ValidateNever]
+		public Category Category { get; set; }
+		[ValidateNever]
+		public string ImageURL { get; set; }
 	}
 }
