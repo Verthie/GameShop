@@ -3,42 +3,40 @@
 Aplikacja e-commerce stworzona w technologii **Blazor Server** umożliwia zarządzanie sklepem z grami komputerowymi. Wspiera różne role użytkowników (Administrator, Firma, Klient), posiada pełną logikę zarządzania produktami, koszykiem i zamówieniami.
 
 ## 🛠 Technologie
-- ASP.NET Core (.NET 6/7)
+- ASP.NET Core (.NET 7)
 - Blazor Server
 - Entity Framework Core (Code-First)
 - SQLite
 - Bootstrap 5
 
-## 📦 Funkcje systemu
+## 🧩 Moduły aplikacji
 
-### Ogólne:
-- Koszyk z dynamiczną kalkulacją ceny
-- Rejestracja, logowanie oraz możliwość edycji danych po rejestracji
-- Filtrowanie i wyszukiwanie
+- **Autoryzacja i role:** Identity + role-based UI
+- **Produkty i kategorie:** gry przypisane do kategorii, z danymi (tytuł, cena, wydawca, producent, zdjęcie), opcja filtrowania
+- **Koszyk:** dodawanie/usuwanie pozycji, obliczanie sumy
+- **Zamówienia:** składanie zamówień, zarządzanie statusami (zrealizowane, anulowane)
+- **Zarządzanie użytkownikami i firmami:** tylko dla administratora
+
+## 📦 Specjalne funkcje systemu
 
 ### Dla Administratora:
 - Zarządzanie kategoriami produktów (CRUD)
 - Dodawanie, edycja, usuwanie gier
 - Zarządzanie firmami i użytkownikami
-- Obsługa oraz filtrowanie zamówień
+- Finalizacja oraz anulowanie zamówień
 
 ### Dla Firmy:
-- Składanie zamówień
 - Opcja "płać później", umożliwiająca opóźnienie płatności za zamówione produkty
 - Możliwość anulowania zamówienia
 
-### Dla Klienta:
-- Przeglądanie katalogu gier
-- Historia zamówień
-- Składanie zamówień
-
-## 🧩 Moduły aplikacji
-
-- **Autoryzacja i role:** Identity + role-based UI
-- **Produkty i kategorie:** gry przypisane do kategorii, z danymi (tytuł, cena, wydawca, producent, zdjęcie)
-- **Koszyk:** dodawanie/usuwanie pozycji, obliczanie sumy
-- **Zamówienia:** składanie zamówień, zarządzanie statusami (zrealizowane, anulowane)
-- **Zarządzanie użytkownikami i firmami:** tylko dla administratora
+## 🧾 Uprawnienia i dostęp
+| Czynność                            | Admin | Firma | Klient |
+|------------------------------------|:-----:|:-----:|:------:|
+| Przegląd katalogu                  | ✅    | ✅    | ✅     |
+| Dodawanie/usuwanie gier            | ✅    | ❌    | ❌     |
+| Składanie zamówień                 | ❌    | ✅    | ✅     |
+| Finalizacja/anulowanie zamówień    | ✅    | ✅    | ❌     |
+| Zarządzanie firmami/użytkownikami  | ✅    | ❌    | ❌     |
 
 ## 📋 Testowe dane logowania
 
@@ -74,9 +72,6 @@ Plik rozwiązania: GameShop.sln
 ```bash
 dotnet run
 ```
-
-4. **Dostęp:**
-Aplikacja działa domyślnie pod adresem https://localhost:5001/
 
 ## 📃 Licencja
 Projekt edukacyjny – do swobodnego użytku, edycji i rozbudowy.
