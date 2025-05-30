@@ -61,7 +61,7 @@ Aplikacja e-commerce stworzona w technologii **Blazor Server** umożliwia zarzą
 
 1. **Sklonuj repozytorium:**
  ```bash
- git clone https://github.com/twoj-user/GameShop.git
+ git clone https://github.com/Verthie/GameShop.git
  cd GameShop
  ```
 
