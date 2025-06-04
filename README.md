@@ -51,7 +51,7 @@ Aplikacja e-commerce stworzona w technologii **Blazor Server** umożliwia zarzą
 ## 🚀 Uruchamianie aplikacji
 
 ### Wymagania:
-- .NET 6 SDK lub nowszy
+- .NET 7 SDK lub nowszy
 - Visual Studio 2022+ z obsługą Blazor/ASP.NET
 - SQLite (lokalnie wbudowany w aplikację)
 
