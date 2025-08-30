@@ -1,10 +1,10 @@
 # 💾 Aplikacja internetowa E-commerce – Sklep z grami
 
-Aplikacja e-commerce stworzona w technologii **Blazor Server** umożliwia zarządzanie sklepem z grami komputerowymi. Wspiera różne role użytkowników (Administrator, Firma, Klient), posiada pełną logikę zarządzania produktami, koszykiem i zamówieniami.
+Aplikacja e-commerce stworzona w technologii **ASP.NET Core MVC** umożliwia zarządzanie sklepem z grami komputerowymi. Wspiera różne role użytkowników (Administrator, Firma, Klient), posiada pełną logikę zarządzania produktami, koszykiem i zamówieniami.
 
 ## 🛠 Technologie
 - ASP.NET Core (.NET 7)
-- Blazor Server
+- Razor Pages
 - Entity Framework Core (Code-First)
 - SQLite
 - Bootstrap 5
@@ -52,7 +52,7 @@ Aplikacja e-commerce stworzona w technologii **Blazor Server** umożliwia zarzą
 
 ### Wymagania:
 - .NET 7 SDK lub nowszy
-- Visual Studio 2022+ z obsługą Blazor/ASP.NET
+- Visual Studio 2022+ z obsługą Razor/ASP.NET
 - SQLite (lokalnie wbudowany w aplikację)
 
 ### Kroki:
@@ -70,6 +70,7 @@ Plik rozwiązania: GameShop.sln
 - Visual Studio: F5 lub Ctrl+F5
 - Terminal:
 ```bash
+dotnet restore
 dotnet run
 ```
 
